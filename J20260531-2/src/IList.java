@@ -9,7 +9,7 @@ public interface IList<T> {
     //判定是否包含某个元素
     boolean contains(Object toFind);
     //查找某个元素对应的位置
-    int IndexOf(Object toFind);
+    int indexOf(Object toFind);
     //获取pos位置的元素
     T get(int pos);
     //给pos位置的元素设为value

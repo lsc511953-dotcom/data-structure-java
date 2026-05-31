@@ -89,7 +89,7 @@ public class MyArrayList<T>implements IList<T> {
     }
 
     @Override
-    public int IndexOf(Object toFind) {
+    public int indexOf(Object toFind) {
         for (int i = 0; i < size; i++) {
             if(elem[i].equals(toFind)) {
                 return i;
@@ -141,7 +141,7 @@ public class MyArrayList<T>implements IList<T> {
     @Override
     public boolean remove(Object toRemove) {
         //删除元素之前先找到元素的下标
-        int index = IndexOf(toRemove);
+        int index = indexOf(toRemove);
 
         //找不到返回false
         if(index == -1) {

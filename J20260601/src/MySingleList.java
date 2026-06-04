@@ -123,12 +123,13 @@ public class MySingleList<T> implements IList<T> {
 
     @Override
     public boolean remove(T key) {
-        if (head == null) {
+        //链表为空
+        if(this.head == null) {
             return false;
         }
 
-        // 删除头节点
-        if (key.equals(head.val)) {
+        //头节点
+        if(key.equals(head.val)) {
             this.head = this.head.next;
             return true;
         }
@@ -148,9 +149,10 @@ public class MySingleList<T> implements IList<T> {
     }
 
     /**
-     * 找到 key 的前一个节点
+     * 找到key值的前一个节点
      */
     private ListNode<T> findPrevByValue(T key) {
+
         ListNode<T> prev = this.head;
         while (prev.next != null) {
             if (key.equals(prev.next.val)) {
@@ -159,7 +161,10 @@ public class MySingleList<T> implements IList<T> {
             prev = prev.next;
         }
         return null;
+
     }
+
+
 
     @Override
     public void removeAllKey(T key) {

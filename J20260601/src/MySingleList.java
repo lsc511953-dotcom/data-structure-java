@@ -191,7 +191,6 @@ public class MySingleList<T> implements IList<T> {
 
     }
 
-
     @Override
     public void clear() {
         this.head = null;

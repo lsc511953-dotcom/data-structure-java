@@ -1,8 +1,8 @@
 import java.util.Arrays;
 
 public class MyArrayList<T> implements IList<T>{
-    public Object[] elem;//数组
-    public int size;//数组长度
+    private Object[] elem;//存储元素的底层数组
+    private int size;//当前有效元素个数
     public static final int DEFAULT_CAPACITY = 10;//默认容量
 
     public MyArrayList() {
@@ -10,6 +10,10 @@ public class MyArrayList<T> implements IList<T>{
     }
 
     public MyArrayList(int initCapacity) {
+        if (initCapacity <= 0) {
+            throw new IllegalArgumentException("初始容量必须大于0");
+        }
+
         this.elem = new Object[initCapacity];
     }
 
@@ -87,7 +91,7 @@ public class MyArrayList<T> implements IList<T>{
     @Override
     public int indexOf(Object toFind) {
         //寻找元素下标
-        for (int i = 0; i < this.elem.length; i++) {
+        for (int i = 0; i < this.size; i++) {
             if(this.elem[i].equals(toFind)) {
                 return i;//返回下标
             }
@@ -101,12 +105,6 @@ public class MyArrayList<T> implements IList<T>{
     public T get(int pos) {
         //判断下标是否合法
         checkPosByGetOrSet(pos);
-
-        //判断顺序表是否为空
-        if(isEmpty()) {
-            throw new EmptyException("获取元素时,顺序表为空");
-        }
-
 
         return (T) this.elem[pos];
     }

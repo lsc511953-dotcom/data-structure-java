@@ -135,17 +135,15 @@ public class MySingleList<T> implements IList<T>{
     }
 
     @Override
-    public boolean removeAllKey(T key) {
+    public void removeAllKey(T key) {
         if(this.head == null) {
-            return false;
+            return;
         }
-        boolean removed = false;
         ListNode<T> prev = this.head;
         ListNode<T> cur = this.head.next;
         while(cur != null) {
             if(cur.val.equals(key)) {
                 prev.next = cur.next;
-                removed = true;
             }else {
                 prev = cur;
             }
@@ -153,9 +151,7 @@ public class MySingleList<T> implements IList<T>{
         }
         if(this.head.val.equals(key)) {
             this.head = this.head.next;
-            removed = true;
         }
-        return removed;
     }
 
     @Override

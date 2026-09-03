@@ -22,7 +22,7 @@ public interface IList<T>{
     boolean remove(T key);
 
     //删除: 移除所有值为key的节点
-    boolean removeAllKey(T key);
+    void removeAllKey(T key);
 
     //清空: 释放链表所有节点
     void clear();
